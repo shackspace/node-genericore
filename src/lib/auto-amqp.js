@@ -3,17 +3,6 @@ var amqp = require('amqp');
 var inspect = require('sys').inspect;
 var nop = function () {};
 
-// Return keys of an object as array.
-var keys = function (object) {
-  var keys = [];
-  for (key in object) {
-    if (object.hasOwnProperty(key)) {
-      keys.push(key);
-    };
-  };
-  return keys;
-};
-
 var connect = function (config, callbacks) {
 
   var log_debug = function (message) {
@@ -47,7 +36,7 @@ var connect = function (config, callbacks) {
     var ready_debit = 0;
     var ready = function () {
       if (--ready_debit === 0) {
-        log_debug('ready, capabilities: ' + inspect(keys(capabilities)));
+        log_debug('ready, capabilities: ' + inspect(Object.keys(capabilities)));
         (callbacks.ready || nop)(capabilities);
       }
     };
