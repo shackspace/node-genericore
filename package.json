@@ -1,0 +1,6 @@
+{ "name": "genericore"
+, "version": "0.0.1"
+, "description": "Utilities for Genericore modules"
+, "author": "tv"
+, "main": "./src/main"
+}
